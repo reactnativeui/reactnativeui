@@ -1,3 +1,4 @@
+import React from 'react';
 import { Image as RNImage, StyleSheet, View as RNView } from 'react-native';
 import type {
   ImageSourcePropType as RNImageSourcePropType,
@@ -16,7 +17,7 @@ export function Card({
   imageStyle,
 }: {
   bodyStyle?: StyleProp<ViewStyle>;
-  children: React.ReactNode;
+  children: React.ReactElement;
   containerStyle?: StyleProp<ViewStyle>;
   imageSource?: RNImageSourcePropType;
   imageStyle?: StyleProp<ImageStyle>;
@@ -24,12 +25,25 @@ export function Card({
   const _imageStyles = [styles.image, imageStyle];
   const isImageVisible: boolean = imageSource !== undefined;
 
+  // Detect if children has a CardHeader
+  const _children = React.Children.toArray(children);
+  for (let child of _children) {
+  }
+
   return (
     <RNView style={[styles.container, containerStyle]}>
       {isImageVisible && <RNImage source={imageSource} style={_imageStyles} />}
-      <RNView style={[styles.body, bodyStyle]}>{children}</RNView>
+      <RNView style={[styles.body, bodyStyle]}>{_children}</RNView>
     </RNView>
   );
+}
+
+export function CardFooter({ children }: { children: React.ReactNode }) {
+  return <RNView>{children}</RNView>;
+}
+
+export function CardHeader({ children }: { children: React.ReactNode }) {
+  return <RNView>{children}</RNView>;
 }
 
 const styles = StyleSheet.create({

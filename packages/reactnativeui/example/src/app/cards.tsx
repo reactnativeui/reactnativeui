@@ -1,6 +1,8 @@
 import { SafeAreaView, ScrollView } from 'react-native';
 import {
   Card,
+  CardFooter,
+  CardHeader,
   Container,
   H1,
   H2,
@@ -8,7 +10,6 @@ import {
   H4,
   H5,
   H6,
-  Image,
   PressableTextButton,
   Text,
 } from 'reactnativeui';
@@ -76,6 +77,25 @@ export default function Cards() {
                 eu rhoncus velit, ut ultricies dolor. Suspendisse nisl justo,
                 commodo ut scelerisque eget, iaculis scelerisque metus.
               </Text>
+            </Card>
+          </ExampleView>
+
+          <H2>Header and footer</H2>
+          <Text>Optionally add a header and footer within a card.</Text>
+          <ExampleView>
+            <Card>
+              <CardHeader>
+                <Text>Header</Text>
+              </CardHeader>
+              <H5>Heading 5</H5>
+              <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                eu rhoncus velit, ut ultricies dolor. Suspendisse nisl justo,
+                commodo ut scelerisque eget, iaculis scelerisque metus.
+              </Text>
+              <CardFooter>
+                <Text>Footer</Text>
+              </CardFooter>
             </Card>
           </ExampleView>
         </Container>

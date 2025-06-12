@@ -8,6 +8,8 @@ export const {
   Button,
   ButtonGroup,
   Card,
+  CardFooter,
+  CardHeader,
   Code,
   Container,
   FormLabel,
